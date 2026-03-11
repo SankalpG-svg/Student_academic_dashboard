@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Settings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reusing our beautiful Glassmorphism CSS */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            min-height: 100vh; color: white; padding: 20px; display: flex; gap: 20px;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        /* Sidebar */
+        .sidebar { width: 250px; padding: 30px 20px; display: flex; flex-direction: column; }
+        .sidebar h3 { text-align: center; margin-bottom: 40px; color: #00f2fe; letter-spacing: 1px; }
+        .sidebar a {
+            color: white; text-decoration: none; padding: 12px 20px; margin-bottom: 10px;
+            border-radius: 10px; transition: 0.3s; display: block;
+        }
+        .sidebar a:hover, .sidebar a.active { background: rgba(0, 242, 254, 0.2); color: #00f2fe; }
+        .sidebar .logout { margin-top: auto; background: rgba(255, 75, 43, 0.2); color: #ff4b2b; }
+        .sidebar .logout:hover { background: #ff4b2b; color: white; }
+
+        /* Main Content */
+        .main-content { flex: 1; padding: 40px; display: flex; justify-content: center; align-items: center;}
+        
+        /* Form Styling */
+        .form-card { width: 100%; max-width: 500px; }
+        h2 { margin-bottom: 25px; font-weight: 600; color: #00f2fe; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 10px;}
+        label { display: block; margin-bottom: 5px; font-size: 0.9em; opacity: 0.8; }
+        input {
+            width: 100%; padding: 12px; margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px; color: white; outline: none; transition: 0.3s;
+        }
+        input:focus { border-color: #00f2fe; background: rgba(255, 255, 255, 0.1); }
+        input[readonly] { opacity: 0.5; cursor: not-allowed; }
+        button {
+            width: 100%; padding: 15px; background: #00f2fe; border: none; border-radius: 10px;
+            font-weight: 600; color: #1a2a6c; cursor: pointer; transition: 0.3s; margin-top: 10px;
+        }
+        button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4); }
+    </style>
+</head>
+<body>
+
+<div class="sidebar glass-panel">
+    <h3>AI PORTAL</h3>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/profile" class="active">Profile Settings</a>
+    <a href="/logout" class="logout">Logout</a>
+</div>
+
+<div class="main-content glass-panel">
+    <div class="form-card">
+        <h2>Update Profile</h2>
+        <form method="POST" action="/profile">
+            <label for="email">Email (Cannot be changed)</label>
+            <input type="email" id="email" name="email" value="{{ student.email }}" readonly>
+            
+            <label for="first_name">First Name</label>
+            <input type="text" id="first_name" name="first_name" value="{{ student.first_name }}" required>
+            
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="last_name" value="{{ student.last_name }}" required>
+            
+            <label for="department">Department</label>
+            <input type="text" id="department" name="department" value="{{ student.department }}" required>
+            
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

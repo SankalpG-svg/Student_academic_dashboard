@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Add Student</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f7f6; display: flex; justify-content: center; padding-top: 50px; }
+        .card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 400px; }
+        input, button { width: 100%; margin-top: 10px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; }
+        button { background: #28a745; color: white; font-weight: bold; border: none; cursor: pointer; margin-top: 20px;}
+        button:hover { background: #218838; }
+        a { display: block; margin-top: 15px; text-align: center; text-decoration: none; color: #6c757d; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Add New Student (Admin)</h2>
+        <form method="POST" action="/add_student">
+            <input type="text" name="first_name" placeholder="First Name" required>
+            <input type="text" name="last_name" placeholder="Last Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="department" placeholder="Department" required>
+            <input type="number" name="enrollment_year" placeholder="Enrollment Year" required>
+            
+            <input type="hidden" name="password" value="student123"> 
+            
+            <button type="submit">Add Student</button>
+        </form>
+        <a href="/admin_dashboard">Back to Admin Dashboard</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit AI Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+        }
+        .form-card {
+            background: rgba(255, 255, 255, 0.1); -webkit-backdrop-filter: blur(15px); backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px;
+            padding: 40px; width: 500px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); color: white;
+        }
+        h2 { margin-bottom: 10px; font-weight: 600; color: #00f2fe; }
+        p.subtitle { opacity: 0.8; font-size: 0.9em; margin-bottom: 25px; }
+        
+        input, textarea {
+            width: 100%; padding: 15px; margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px; color: white; outline: none; transition: 0.3s;
+        }
+        input:focus, textarea:focus { border-color: #00f2fe; background: rgba(255, 255, 255, 0.1); }
+        input::placeholder, textarea::placeholder { color: rgba(255, 255, 255, 0.5); }
+        
+        button {
+            width: 100%; padding: 15px; background: #00f2fe; border: none; border-radius: 10px;
+            font-weight: 600; color: #1a2a6c; cursor: pointer; transition: 0.3s; margin-top: 10px;
+        }
+        button:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4); }
+        
+        a.cancel {
+            display: block; text-align: center; margin-top: 20px; color: rgba(255,255,255,0.6);
+            text-decoration: none; transition: 0.3s;
+        }
+        a.cancel:hover { color: #ff4b2b; }
+    </style>
+</head>
+<body>
+
+    <div class="form-card">
+        <h2>Analyze New Project</h2>
+        <p class="subtitle">Our NLP engine will automatically extract technical skills and compute a complexity score from your description.</p>
+        
+        <form method="POST" action="/add_project">
+            <input type="text" name="project_title" placeholder="e.g., FastAPI Authentication Microservice" required>
+            <textarea name="description" rows="6" placeholder="Describe your architecture. Mention technologies like Python, SQL, REST APIs, or Machine Learning to trigger the extractor..." required></textarea>
+            
+            <button type="submit">Run AI Analysis & Submit</button>
+        </form>
+        
+        <a href="/dashboard" class="cancel">Cancel and return to Dashboard</a>
+    </div>
+
+</body>
+</html>

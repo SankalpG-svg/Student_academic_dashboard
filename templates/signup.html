@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Academic Portal - Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            padding: 20px;
+        }
+        .signup-card {
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            width: 450px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            text-align: center; color: white;
+        }
+        h2 { margin-bottom: 20px; font-weight: 600; }
+        input {
+            width: 100%; padding: 12px; margin: 8px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px; color: white; outline: none;
+        }
+        input::placeholder { color: rgba(255, 255, 255, 0.7); }
+        button {
+            width: 100%; padding: 12px; margin-top: 20px;
+            background: #00f2fe; border: none; border-radius: 10px;
+            font-weight: 600; cursor: pointer; transition: 0.3s;
+        }
+        button:hover { background: #4facfe; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4); }
+        .error { color: #ff4b2b; font-size: 0.9em; margin-top: 10px; }
+        a { color: #00f2fe; text-decoration: none; font-size: 0.9em; display: block; margin-top: 15px; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="signup-card">
+        <h2>Create Account</h2>
+        <form method="POST">
+            <input type="text" name="first_name" placeholder="First Name" required>
+            <input type="text" name="last_name" placeholder="Last Name" required>
+            <input type="text" name="department" placeholder="Department" required>
+            <input type="number" name="enrollment_year" placeholder="Enrollment Year" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        {% if error %} <p class="error">{{ error }}</p> {% endif %}
+        <a href="/student_auth">Already have an account? Login</a>
+    </div>
+</body>
+</html>
